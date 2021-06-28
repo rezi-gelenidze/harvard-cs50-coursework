@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            function trigger(event){
+                let triggered_btn = event.target;
+                let answer = triggered_btn.innerHTML;
+
+                let color;
+                let feedback;
+                // check answer
+                if (answer == '26 May 1918'){
+                    color = '#90ee90';  //green
+                    feedback = 'Correct!';
+                }
+                else {
+                    color = '#ffcccb';  //red
+                    feedback = 'Incorrect!';
+                }
+
+                triggered_btn.style.backgroundColor = color;
+                document.querySelector("#feedback1").innerHTML = feedback;
+            }
+
+            function check_free_response(){
+                // get answer from text field
+                let inp_field = document.querySelector("input[type='text']");
+                let answer = inp_field.value.toLowerCase();
+
+                let color;
+                let feedback;
+                // check answer
+                if (answer == 'zviad gamsakhurdia'){
+                    color = '#90ee90';  //green
+                    feedback = 'Correct!';
+                }
+                else {
+                    color = '#ffcccb';  //red
+                    feedback = 'Incorrect!';
+                }
+                // change inp_field bgcolor
+                inp_field.style.backgroundColor = color;
+                // return feedback
+                document.querySelector("#feedback2").innerHTML = feedback;
+
+                }
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Adoption date of the Act of Independence, which established the Democratic Republic of Georgia</h3>
+                <button onclick='trigger(event)'>7 November 1917</button>
+                <button onclick='trigger(event)'>9 April 1989</button>
+                <button onclick='trigger(event)'>26 May 1918</button>
+                <button onclick='trigger(event)'>31 December 1993</button>
+                <p id="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>Who was the first president of the Republic of Georgia?</h3>
+
+                <input type='text' name='answer' autocomplete='off' placeholder="Fullname" autofocus />
+                <input onclick='check_free_response()' type='submit' />
+                <p id="feedback2"></p>
+            </div>
+
+        </div>
+    </body>
+</html>
