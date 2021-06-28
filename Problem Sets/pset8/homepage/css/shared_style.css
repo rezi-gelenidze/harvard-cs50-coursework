@@ -1,0 +1,25 @@
+body {
+    background-color: #303030;
+}
+
+main {
+    margin: 40px 40px 120px 40px;
+    color: white;
+}
+footer {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .text, .aboutMeText {
+    width: auto;
+  }
+}
+
+.nav-link {
+    color: white;
+}
